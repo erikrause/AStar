@@ -9,7 +9,8 @@ class Matrix : public IGrid
 {
 public:
 
-	Matrix(Vec2Int size, unsigned char blockingFreq);
+	Matrix(Vec2Int size);
+	Matrix(Vec2Int size, float blockingFreq);
 	Matrix(Vec2Int size, std::vector<double> weights);
 	virtual ~Matrix();
 
@@ -26,6 +27,6 @@ protected:
 
 	std::vector<Node*> _nodes;
 	Vec2Int _size;
-	unsigned char _blockingFreq;
+	float _blockingFreq;
 	std::vector<Vec2Int> _adjacentDirections = { Vec2Int(-1, 0), Vec2Int(0, 1), Vec2Int(1, 0), Vec2Int(0, -1) };
 };

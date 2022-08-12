@@ -146,11 +146,13 @@
   <ItemGroup>
     <ClInclude Include="BinaryHeapContainer.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="PerlinNoise.h" />
     <ClInclude Include="VectorContainer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinaryHeapContainer.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="PerlinNoise.cpp" />
     <ClCompile Include="VectorContainer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -9,9 +9,6 @@ AStar::AStar(IGrid& grid, Vec2Int startPos, Vec2Int endPos, IContainer& MinSearc
 {
     //_closed = TContainer();
     _opened.Push(_grid.GetNode(_startPos));
-    Node* test1 = _grid.GetNode(_startPos);
-    test1->IsVisited = true;
-    Node* test2 = _grid.GetNode(_startPos);
 
     while (_opened.Length() != 0)
     {
@@ -29,6 +26,7 @@ AStar::AStar(IGrid& grid, Vec2Int startPos, Vec2Int endPos, IContainer& MinSearc
 
             if (!adjacentNode->IsVisited || adjacentNodeNewCost < adjacentNode->Cost)
             {
+                adjacentNode->Cost = adjacentNodeNewCost;
                 adjacentNode->Heuristic = adjacentNodeNewCost + CalculateHeuristic(adjacentNode->GetPos(), _endPos);
                 adjacentNode->IsVisited = true;
                 adjacentNode->Previous = current;

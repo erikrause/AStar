@@ -24,6 +24,9 @@
     <ClInclude Include="BinaryHeapContainer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="PerlinNoise.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VectorContainer.cpp">
@@ -33,6 +36,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="BinaryHeapContainer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="PerlinNoise.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

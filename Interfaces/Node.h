@@ -24,6 +24,12 @@ public:
 	/// </summary>
 	/// <returns></returns>
 	double GetWeight() const { return _weight; }
+
+	/// <summary>
+	/// »зменить стоимость попадани€ в узел.
+	/// </summary>
+	/// <returns></returns>
+	void SetWeight(double weight) { _weight = weight; }
 	
 	/// <summary>
 	/// «атраченна€ стоимость попадани€ в этот узел.
@@ -46,7 +52,7 @@ public:
 	Node* Previous = NULL;
 
 
-	static bool Comparator(const Node* max, const Node* min)
+	static bool ComparatorMax(const Node* max, const Node* min)
 	{
 		return (max->Heuristic > min->Heuristic);
 	}

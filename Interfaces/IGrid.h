@@ -14,7 +14,7 @@ public:
 	virtual Vec2Int GetSize() = 0;
 
 	/// <summary>
-	/// ¬озвращает частоту заблокированных узлов от 0 до 100.
+	/// ¬озвращает частоту заблокированных узлов от 0 до 1.
 	/// </summary>
 	virtual unsigned char GetBlockingFreq() = 0;
 

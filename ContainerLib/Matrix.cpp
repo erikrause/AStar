@@ -1,8 +1,27 @@
 #include "Matrix.h"
 #include <time.h>
 #include <iostream>
+#include "PerlinNoise.h"
 
-Matrix::Matrix(Vec2Int size, unsigned char blockingFreq)
+Matrix::Matrix(Vec2Int size)
+	:
+	_size(size),
+	_blockingFreq(0)
+{
+	std::srand(std::time(nullptr));
+	PerlinNoise pn;
+
+	for (int j = 0; j < _size.Y; j++)
+	{
+		for (int i = 0; i < _size.X; i++)
+		{
+			double noise = pn.noise(0.1 * i, 0.1 * j, 0.55) * 15;
+			_nodes.push_back(new Node(Vec2Int(i, j), noise));
+		}
+	}
+}
+
+Matrix::Matrix(Vec2Int size, float blockingFreq)
 	:
 	_size(size),
 	_blockingFreq(blockingFreq)
@@ -13,10 +32,10 @@ Matrix::Matrix(Vec2Int size, unsigned char blockingFreq)
 
 	for (int j = 0; j < _size.Y; j++)
 	{
-		for (int i = 0; i < _size.X; j++)
+		for (int i = 0; i < _size.X; i++)
 		{
-			int randomPercent = std::rand() / (RAND_MAX + 1u);	// число от 0 до 100.
-			bool isBlocked = round((double)(randomPercent - blockingFreq) / 100);
+			float randomPercent = (float)std::rand() / (float)(RAND_MAX + 1u);	// число от 0 до 1.
+			bool isBlocked = round((double)(randomPercent - blockingFreq));
 			double weight = isBlocked ? DBL_MAX : 0;
 			//_nodes[i + j * size.X] = (Node(Vec2Int(i, j), isBlocked));
 			_nodes.push_back(new Node(Vec2Int(i, j), weight));
