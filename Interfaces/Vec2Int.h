@@ -3,6 +3,12 @@
 class Vec2Int
 {
 public:
+
+	Vec2Int() : X(0), Y(0)
+	{
+
+	}
+
 	Vec2Int(int x, int y) : X(x), Y(y)
 	{
 	}

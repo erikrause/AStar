@@ -3,6 +3,12 @@
 class Vec2Float
 {
 public:
+
+	Vec2Float() : X(0), Y(0)
+	{
+
+	}
+
 	Vec2Float(float x, float y) : X(x), Y(y)
 	{
 	}
