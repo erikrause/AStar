@@ -26,7 +26,7 @@ sf::Color makeHeuristicColor(Node node)
 
 sf::Color makeWeightColor(Node node)
 {
-	return sf::Color(0, 0, (1 - node.GetWeight() / 15) * 255);
+	return sf::Color(0, 0, (1 - node.GetWeight()/2) * 255);
 }
 
 sf::RectangleShape configureShape(sf::Window& window, IGrid& grid)
