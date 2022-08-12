@@ -141,7 +141,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		size = Vec2Int(120, 120);
+		size = Vec2Int(20, 20);
 	}
 
 	g_matrix = new Matrix(size);//, 0.4);
