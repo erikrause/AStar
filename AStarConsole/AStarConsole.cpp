@@ -130,11 +130,20 @@ void eventHandling(sf::Window& window)
 //	return std::vector<double>();
 //}
 
-int main()
+int main(int argc, char* argv[])
 {
-	// Grid initializetion:
-	Vec2Int size = Vec2Int(120, 120);
-	//g_matrix = new Matrix(size, g_weights);
+	// Grid initialization:
+	Vec2Int size;
+	if (argc > 1)
+	{
+		size.X = atoi(argv[1]);
+		size.Y = atoi(argv[2]);
+	}
+	else
+	{
+		size = Vec2Int(120, 120);
+	}
+
 	g_matrix = new Matrix(size);//, 0.4);
 
 	// Window setup:
@@ -159,6 +168,21 @@ int main()
 				window.draw(rectangle);
 			}
 		}
+		if (g_startPos)
+		{
+			auto rectangle = sf::RectangleShape(g_rectangleOrigin);
+			rectangle.setPosition(sf::Vector2f(g_startPos->X * (g_rectangleOrigin.getSize().x + g_outlineThickness), g_startPos->Y * (g_rectangleOrigin.getSize().y + g_outlineThickness)));
+			rectangle.setFillColor(sf::Color::White);
+			window.draw(rectangle);
+		}
+		if (g_endPos)
+		{
+			auto rectangle = sf::RectangleShape(g_rectangleOrigin);
+			rectangle.setPosition(sf::Vector2f(g_endPos->X * (g_rectangleOrigin.getSize().x + g_outlineThickness), g_endPos->Y * (g_rectangleOrigin.getSize().y + g_outlineThickness)));
+			rectangle.setFillColor(sf::Color::White);
+			window.draw(rectangle);
+		}
+
 		window.display();
 	}
 
