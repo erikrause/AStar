@@ -15,7 +15,7 @@ Matrix::Matrix(Vec2Int size)
 	{
 		for (int i = 0; i < _size.X; i++)
 		{
-			double noise = pn.noise(0.1 * i, 0.1 * j, 0.55) * 15;
+			double noise = pn.noise(0.1 * i, 0.1 * j, 0.55) + 1;
 			_nodes.push_back(new Node(Vec2Int(i, j), noise));
 		}
 	}
